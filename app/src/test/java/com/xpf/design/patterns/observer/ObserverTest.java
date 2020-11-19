@@ -6,7 +6,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.security.auth.Subject;
 
 /**
  * 观察者模式
@@ -25,7 +24,7 @@ import javax.security.auth.Subject;
 public class ObserverTest {
     @Test
     public void test() {
-        /*Subject subject = new Subject();
+        Subject subject = new Subject();
         Task1 task1 = new Task1();
         subject.addObserver(task1);
         Task2 task2 = new Task2();
@@ -34,29 +33,29 @@ public class ObserverTest {
         subject.notifyObserver("xxx");
         System.out.println("=============");
         subject.remove(task1);
-        subject.notifyObserver("yyy");*/
+        subject.notifyObserver("yyy");
     }
 
 }
 
-/*class Subject {
+class Subject {
     //容器
     private List<Observer> container = new ArrayList<>();
 
-    *//**
+    /**
      * 添加观察者到容器列表
-     * @param observer
-     *//*
+      * @param observer
+     */
     public void addObserver(Observer observer) {
         if (!container.contains(observer)) {
             container.add(observer);
         }
     }
 
-    *//**
+    /**
      * 从容器列表移除观察者
      * @param observer
-     *//*
+     */
     public void remove(Observer observer) {
         container.remove(observer);
     }
@@ -66,9 +65,9 @@ public class ObserverTest {
             observer.update(object);
         }
     }
-}*/
+}
 
-/*interface Observer{
+interface Observer{
     void update(Object object);
 }
 
@@ -84,5 +83,5 @@ class Task2 implements Observer{
     public void update(Object object) {
         System.out.println("task2 received: " + object);
     }
-}*/
+}
 
