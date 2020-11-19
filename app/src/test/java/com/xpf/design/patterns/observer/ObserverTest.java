@@ -39,6 +39,14 @@ public class ObserverTest {
 }
 
 class Subject {
+    //被观察者状态是否有改变
+    boolean stateChanged;
+
+
+    public void setState(boolean stateChanged) {
+        this.stateChanged = stateChanged;
+    }
+
     //容器
     private List<Observer> container = new ArrayList<>();
 
@@ -60,10 +68,15 @@ class Subject {
         container.remove(observer);
     }
 
+
+
     public void notifyObserver(Object object) {
-        for (Observer observer : container) {
-            observer.update(object);
+        if (stateChanged) {
+            for (Observer observer : container) {
+                observer.update(object);
+            }
         }
+
     }
 }
 
